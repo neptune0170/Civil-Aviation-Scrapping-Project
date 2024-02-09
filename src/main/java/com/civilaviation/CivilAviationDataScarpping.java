@@ -250,91 +250,137 @@ public class CivilAviationDataScarpping {
   //make the variable by Entit1 = 1st value of the list "Airline + Value" from the list 
   //Same for other value.
 
-            // String ASG_E_AirIndia;
-            // String ASG_E_Security;
-            // String ASG_E_GoFirst;
-            // String ASG_E_Indigo;
-            // String ASG_E_VietJetAir;
-            // String ASG_E_QatarAirways;
-  
+            // String Entity1;
+            // String Entity2;
+            // String Entity3;
+            // String Entity4;
+            // String Entity5;
+            // String Entity6;
+// Fixed
 
 //============================================================================================      
-//Issue #2
+
+   // Locate the Air Sewa Grievances (by entity) section
+   WebElement grievancesSection = driver.findElement(By.id("block-views-block-air-sewa-grievances-block-3"));
+
+   // Extract data for each entity
+
+       String entityLabel1Xpath = "/html/body/div[1]/div[1]/div/div[1]/div[9]/div/div/div/div/div[2]/ul/li[1]/div/div[1]";
+       String entityCount1Xpath = "/html/body/div[1]/div[1]/div/div[1]/div[9]/div/div/div/div/div[2]/ul/li[1]/div/div[2]";
+
+       WebElement entityLabel1Element = grievancesSection.findElement(By.xpath(entityLabel1Xpath));
+       WebElement entityCount1Element = grievancesSection.findElement(By.xpath(entityCount1Xpath));
+
+       String entityLabel1 = entityLabel1Element.getText().trim();
+       String entityCount1 = entityCount1Element.getText().trim();
+
+       // Extract data for each entity
+
+       String entityLabel2Xpath = "/html/body/div[1]/div[1]/div/div[1]/div[9]/div/div/div/div/div[2]/ul/li[2]/div/div[1]";
+       String entityCount2Xpath = "/html/body/div[1]/div[1]/div/div[1]/div[9]/div/div/div/div/div[2]/ul/li[2]/div/div[2]";
+
+       WebElement entityLabel2Element = grievancesSection.findElement(By.xpath(entityLabel2Xpath));
+       WebElement entityCount2Element = grievancesSection.findElement(By.xpath(entityCount2Xpath));
+
+       String entityLabel2 = entityLabel2Element.getText().trim();
+       String entityCount2 = entityCount2Element.getText().trim();
+        
+          // Extract data for each entity
+
+       String entityLabel3Xpath = "/html/body/div[1]/div[1]/div/div[1]/div[9]/div/div/div/div/div[2]/ul/li[3]/div/div[1]";
+       String entityCount3Xpath = "/html/body/div[1]/div[1]/div/div[1]/div[9]/div/div/div/div/div[2]/ul/li[3]/div/div[2]";
+
+       WebElement entityLabel3Element = grievancesSection.findElement(By.xpath(entityLabel3Xpath));
+       WebElement entityCount3Element = grievancesSection.findElement(By.xpath(entityCount3Xpath));
+
+       String entityLabel3 = entityLabel3Element.getText().trim();
+       String entityCount3 = entityCount3Element.getText().trim();
+        
+
+         // Extract data for each entity
+
+         String entityLabel4Xpath = "/html/body/div[1]/div[1]/div/div[1]/div[9]/div/div/div/div/div[2]/ul/li[4]/div/div[1]";
+         String entityCount4Xpath = "/html/body/div[1]/div[1]/div/div[1]/div[9]/div/div/div/div/div[2]/ul/li[4]/div/div[2]";
+  
+         WebElement entityLabel4Element = grievancesSection.findElement(By.xpath(entityLabel4Xpath));
+         WebElement entityCount4Element = grievancesSection.findElement(By.xpath(entityCount4Xpath));
+  
+         String entityLabel4 = entityLabel4Element.getText().trim();
+         String entityCount4 = entityCount4Element.getText().trim();
+          
+
+           // Extract data for each entity
+
+       String entityLabel5Xpath = "/html/body/div[1]/div[1]/div/div[1]/div[9]/div/div/div/div/div[2]/ul/li[5]/div/div[1]";
+       String entityCount5Xpath = "/html/body/div[1]/div[1]/div/div[1]/div[9]/div/div/div/div/div[2]/ul/li[5]/div/div[2]";
+
+       WebElement entityLabel5Element = grievancesSection.findElement(By.xpath(entityLabel5Xpath));
+       WebElement entityCount5Element = grievancesSection.findElement(By.xpath(entityCount5Xpath));
+
+       String entityLabel5 = entityLabel5Element.getText().trim();
+       String entityCount5 = entityCount5Element.getText().trim();
+
+         // Extract data for each entity
+
+         String entityLabel6Xpath = "/html/body/div[1]/div[1]/div/div[1]/div[9]/div/div/div/div/div[2]/ul/li[6]/div/div[1]";
+         String entityCount6Xpath = "/html/body/div[1]/div[1]/div/div[1]/div[9]/div/div/div/div/div[2]/ul/li[6]/div/div[2]";
+  
+         WebElement entityLabel6Element = grievancesSection.findElement(By.xpath(entityLabel6Xpath));
+         WebElement entityCount6Element = grievancesSection.findElement(By.xpath(entityCount6Xpath));
+  
+         String entityLabel6 = entityLabel6Element.getText().trim();
+         String entityCount6 = entityCount6Element.getText().trim();
+          
+  
+
+       // Concatenate and save the result
+       String Entity1 = entityLabel1 + " - " + entityCount1;
+       String Entity2 = entityLabel2 + " - " + entityCount2;
+       String Entity3 = entityLabel3 + " - " + entityCount3;
+       String Entity4 = entityLabel4 + " - " + entityCount4;
+       String Entity5 = entityLabel5 + " - " + entityCount5;
+       String Entity6 = entityLabel6 + " - " + entityCount6;
+
+       System.out.println("Entity1" + ": " + Entity1);
+       System.out.println("Entity2" + ": " + Entity2);
+       System.out.println("Entity3" + ": " + Entity3);
+       System.out.println("Entity4" + ": " + Entity4);
+       System.out.println("Entity5" + ": " + Entity5);
+       System.out.println("Entity6" + ": " + Entity6);
+  
+    //Issue #2
  
    //Approach to fix - Skip the value which whose xpath is not able to find 
    //and check why the value is not found; 
  
-             // Extract data from the HTML content (Airports section)
-            //  WebElement operationalElement = driver.findElement(By.xpath("//h2[contains(@class,'hindi-title') and contains(text(),'??????????')]/following-sibling::span[contains(@class,'date-widget')]/parent::div/following-sibling::div//div[contains(@class,'field--name-field-label') and contains(text(),'Operational')]/following-sibling::div"));
-            //  String A_Operational = operationalElement.getText();
+           //  Extract data from the HTML content (Airports section)
+             WebElement operationalElement = driver.findElement(By.xpath("/html/body/div[1]/div[1]/div/div[1]/div[10]/div/div/div/div/div[2]/ul/li[1]/div/div[2]"));
+             String A_Operational = operationalElement.getText();
  
-            //  WebElement internationalElement = driver.findElement(By.xpath("//h2[contains(@class,'hindi-title') and contains(text(),'??????????')]/following-sibling::span[contains(@class,'date-widget')]/parent::div/following-sibling::div//div[contains(@class,'field--name-field-label') and contains(text(),'International*')]/following-sibling::div"));
-            //  String A_International = internationalElement.getText();
+             WebElement internationalElement = driver.findElement(By.xpath("/html/body/div[1]/div[1]/div/div[1]/div[10]/div/div/div/div/div[2]/ul/li[2]/div/div[2]"));
+             String A_International = internationalElement.getText();
  
-            //  WebElement customElement = driver.findElement(By.xpath("//h2[contains(@class,'hindi-title') and contains(text(),'??????????')]/following-sibling::span[contains(@class,'date-widget')]/parent::div/following-sibling::div//div[contains(@class,'field--name-field-label') and contains(text(),'Custom')]/following-sibling::div"));
-            //  String A_Custom = customElement.getText();
+             WebElement customElement = driver.findElement(By.xpath("/html/body/div[1]/div[1]/div/div[1]/div[10]/div/div/div/div/div[2]/ul/li[3]/div/div[2]"));
+             String A_Custom = customElement.getText();
  
-            //  WebElement domesticElement = driver.findElement(By.xpath("//h2[contains(@class,'hindi-title') and contains(text(),'??????????')]/following-sibling::span[contains(@class,'date-widget')]/parent::div/following-sibling::div//div[contains(@class,'field--name-field-label') and contains(text(),'Domestic*')]/following-sibling::div"));
-            //  String A_Domestic = domesticElement.getText();
+             WebElement domesticElement = driver.findElement(By.xpath("/html/body/div[1]/div[1]/div/div[1]/div[10]/div/div/div/div/div[2]/ul/li[4]/div/div[2]"));
+             String A_Domestic = domesticElement.getText();
  
-            //  WebElement jointVentureInternationalElement = driver.findElement(By.xpath("//h2[contains(@class,'hindi-title') and contains(text(),'??????????')]/following-sibling::span[contains(@class,'date-widget')]/parent::div/following-sibling::div//div[contains(@class,'field--name-field-label') and contains(text(),'Joint venture International')]/following-sibling::div"));
-            //  String A_JointVentureInternational = jointVentureInternationalElement.getText();
+             WebElement jointVentureInternationalElement = driver.findElement(By.xpath("//html/body/div[1]/div[1]/div/div[1]/div[10]/div/div/div/div/div[2]/ul/li[5]/div/div[2]"));
+             String A_JointVentureInternational = jointVentureInternationalElement.getText();
  
-            //  WebElement stateGovPrivateElement = driver.findElement(By.xpath("//h2[contains(@class,'hindi-title') and contains(text(),'??????????')]/following-sibling::span[contains(@class,'date-widget')]/parent::div/following-sibling::div//div[contains(@class,'field--name-field-label') and contains(text(),'State Govt./ Private')]/following-sibling::div"));
-            //  String A_StateGov_Private = stateGovPrivateElement.getText();
+             WebElement stateGovPrivateElement = driver.findElement(By.xpath("/html/body/div[1]/div[1]/div/div[1]/div[10]/div/div/div/div/div[2]/ul/li[6]/div/div[2]"));
+             String A_StateGov_Private = stateGovPrivateElement.getText();
  
-            //  // Use the extracted data as needed
-            // //    System.out.println("Operational Airports: " + A_Operational);
-            //  System.out.println("International Airports: " + A_International);
-            //  System.out.println("Custom Airports: " + A_Custom);
-            //  System.out.println("Domestic Airports: " + A_Domestic);
-            //  System.out.println("Joint Venture International Airports: " + A_JointVentureInternational);
-            //  System.out.println("State Govt./Private Airports: " + A_StateGov_Private);
+             // Use the extracted data as needed
+             System.out.println("Operational Airports: " + A_Operational);
+             System.out.println("International Airports: " + A_International);
+             System.out.println("Custom Airports: " + A_Custom);
+             System.out.println("Domestic Airports: " + A_Domestic);
+             System.out.println("Joint Venture International Airports: " + A_JointVentureInternational);
+             System.out.println("State Govt./Private Airports: " + A_StateGov_Private);
  
-// String A_Operational;
-// String A_International;
-// String A_Custom;
-// String A_Domestic;
-// String A_JointVentureInternational;
-// String A_StateGov_Private;
 
-
-
-// Log=============================================
-// Exception in thread "main" org.openqa.selenium.NoSuchElementException: no such element: Unable to 
-// locate element: {"method":"xpath","selector":"//h2[contains(@class,'hindi-title') and contains(text(),'??????????')]/following-sibling::span[contains(@class,'date-widget')]/parent::div/following-sibling::div//div[contains(@class,'field--name-field-label') and contains(text(),'International*')]/following-sibling::div"}
-//   (Session info: chrome=121.0.6167.140)
-// For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception   
-// Build info: version: '4.17.0', revision: 'e52b1be057*'
-// System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.10' 
-// Driver info: org.openqa.selenium.chrome.ChromeDriver
-// Command: [1bde3867e18ee2aadd68b2842ff325c9, findElement {using=xpath, value=//h2[contains(@class,'hindi-title') and contains(text(),'??????????')]/following-sibling::span[contains(@class,'date-widget')]/parent::div/following-sibling::div//div[contains(@class,'field--name-field-label') and contains(text(),'International*')]/following-sibling::div}]
-// Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 121.0.6167.140, chrome: {chromedriverVersion: 120.0.6099.109 (3419140ab66..., userDataDir: C:\Users\PS42\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: 
-// {debuggerAddress: localhost:49742}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:49742/devtoo..., se:cdpVersion: 121.0.6167.140, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 
-// 300000, script: 30000}, unhandledPromptBehavior: 
-// dismiss and notify, webauthn:extension:credBlob: 
-// true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-// Session ID: 1bde3867e18ee2aadd68b2842ff325c9     
-//         at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-//         at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
-//         at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
-//         at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Unknown Source)
-//         at java.base/java.lang.reflect.Constructor.newInstance(Unknown Source)
-//         at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:185)
-//         at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:134)
-//         at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:51)
-//         at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)   
-//         at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
-//         at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
-//         at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:519)
-//         at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
-//         at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)        
-//         at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:356)       
-//         at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:350)       
-//         at com.civilaviation.CivilAviationDataScarpping.main(CivilAviationDataScarpping.java:262)
-
-
-//===================================================================================
 // String D_TypeCertificates;
 // String D_UINissued;
 // String D_DroneSchools;
