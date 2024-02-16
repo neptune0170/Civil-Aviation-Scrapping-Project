@@ -2,25 +2,42 @@ package com.civilaviation;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.time.Duration;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class CivilAviationDataScarpping {
     public static void main(String[] args) {
         // Set the path to your ChromeDriver executable
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\PS42\\Desktop\\Scraping Project\\chromedriver-win64\\chromedriver.exe");
+        // System.setProperty("webdriver.chrome.driver", "C:\\Users\\PS42\\Desktop\\Scraping Project\\chromedriver-win64\\chromedriver.exe");
 
-        // Create a new instance of the ChromeDriver
-        WebDriver driver = new ChromeDriver();
+        // // Create a new instance of the ChromeDriver
+        // WebDriver driver = new ChromeDriver();
 
+        WebDriverManager.chromedriver().setup();
+
+        // Enable headless mode
+        ChromeOptions options = new ChromeOptions();
+       
+        // Create a new instance of the ChromeDriver with headless mode enabled
+        WebDriver driver = new ChromeDriver(options);
+         
         try {
             // Navigate to the website
             driver.get("https://www.civilaviation.gov.in/");
-
+       
+           
+  
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
             // Get the HTML content of the page
             String htmlContent = driver.getPageSource();
 
